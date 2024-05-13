@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>štoparca</title>
+  </head>
+
+  <body>
+    <script>
+
+      //TIMEOUT  SEKUNDE in MIN//
+      let stotinke = 0;
+      let sec = 0;
+
+      setInterval(() => {
+        stotinke++;
+        console.log(`stotinke ${stotinke}`);
+
+        if (stotinke >= 99) {
+          stotinke = 0;
+          setTimeout(() => {
+            sec++;
+            console.log(`sekunde ${sec}`);
+          }, 10)
+        }
+      }, 10)
+
+    </script>
+  </body>
+
+</html>
