@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>štoparca</title>
+  </head>
+  <button onclick="start()">Start</button>
+  <button onclick="stopInterval()">Stop</button>
+
+  <body>
+    <script>
+
+
+      let stotinke = 0;
+      let sec = 0;
+      let min = 0;
+      let ura = 0;
+
+      ///
+      let intervalID;
+
+      function start() {
+        intervalID = setInterval(() => {
+          stotinke++;
+          console.log(`stotinke ${stotinke}`);
+
+          if (stotinke >= 99) {
+            stotinke = 0;
+            sec++;
+            console.log(`SEKUNDE ${sec}`);
+          }
+
+          if (sec >= 9) {
+            sec = 0;
+            setTimeout(() => {
+              min++;
+              console.log(` M I N U T E!!!!!!!!!!!:::::::: ${min}`);
+            }, 1000)
+
+
+          }
+
+          if (min >= 9) {
+            min = 0;
+            setTimeout(() => {
+              ura++;
+              console.log(` URA  ====>>>>>>>>>>>>>>>>>>>>>>>>>>>   !!!!!!!!!!!:::::::: ${ura}`);
+            }, 10000);
+
+          }
+        }, 10)
+      }
+
+      function stopInterval() {
+        clearInterval(intervalID);
+      }
+    </script>
+  </body>
+
+</html>
