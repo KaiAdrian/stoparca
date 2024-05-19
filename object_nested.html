@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div>
+            <p class="stotinke"></p>
+            <p class="sec"></p>
+            <p class="min"></p>
+            <p class="ura"></p>
+
+
+        </div>
+        <script>
+
+            const watch = {
+                stotinke: {
+                    name: 'stotinke',
+                    value: 100
+                },
+                sec: 0,
+                min: 0,
+                ura: 0
+            };
+            const stotinke = {
+                name: 'stotinke',
+                value: 100
+            }
+            const sec = {
+                name: 'sec',
+                value: 60
+            }
+            const min = {
+                name: 'min',
+                value: 60
+            }
+
+            function display(value) {
+                let selector = "." + value.name;
+                document.querySelector(selector)
+                    .innerText = value.value;
+            }
+            display(stotinke);
+            display(sec);
+            display(min);
+
+            ///nested
+            console.log('watch:', watch);
+            console.log('watch.stotinke:' + '', watch.stotinke);
+            console.log('watch.stotinke.name:' + '', watch.stotinke.name);
+            console.log('watch.stotinke.value:' + '', watch.stotinke.value);
+        </script>
+    </body> 
+
+</html>

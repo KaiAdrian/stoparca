@@ -15,30 +15,35 @@
 
             let stotinke = 0;
             let sec = 0;
-            let min=0;
+            let min = 0;
             ///
 
             /*
-            *STEVC ////////////////////////
+            
             /*/
-            let stevc = 0;
+            let casovnik;
             ///
 
             ////
             let intervalID;
             function start() {
                 intervalID = setInterval(() => {
-                    stevc++;
+                    //stevc++;
                     stotinke++;
                     console.log(`stotinke ${stotinke}`);
 
-                    if (stotinke >= 99) {
+                    if (stotinke > 99) {
                         stotinke = 0;
                         setTimeout(() => {
                             sec++;
                             console.log(`SEKUNDE ${sec}`);
-                        }, 10)
-                  
+                            if (sec > 9) {
+                                sec = 0;
+                                min++;
+                                console.log(` M I N U T E!!!!!!!!!!!:::::::: ${min}`);
+                            }
+                        }, 1000)
+
                     }
                 }, 10)
             }
