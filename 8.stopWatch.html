@@ -8,10 +8,11 @@
   </head>
   <button onclick="start()">Start</button>
   <button onclick="stopInterval()">Stop</button>
+  <button onclick="resetAllValues()">Reset</button>
   <div style="margin-bottom: 10px;
 display:flex;justify-content: center;
 gap: 10px; font-size: 25px;">
-    <p class="ura">00:</p>
+    <p class="ura"></p>
     <p class="min">00:</p>
     <p class="sec">00:</p>
     <p class="stotinke">00</p>
@@ -20,9 +21,6 @@ gap: 10px; font-size: 25px;">
 
   <body>
     <script>
-
-
-
       let stotinke = {
         name: 'stotinke',
         value: 0
@@ -39,13 +37,8 @@ gap: 10px; font-size: 25px;">
         name: 'ura',
         value: 0,
       };
-
-
       ///
       let intervalID;
-
-
-
 
       function start() {
         intervalID = setInterval(() => {
@@ -60,12 +53,11 @@ gap: 10px; font-size: 25px;">
             display(sec);
           }
 
-          if (sec.value >= 9) {
+          if (sec.value >= 59) {
             sec.value = 0;
             setTimeout(() => {
               min.value++;
               // console.log(` M I N U T E!!!!!!!!!!!:::::::: ${min}`);
-              ///
               display(min);
               //
             }, 1000)
@@ -73,12 +65,11 @@ gap: 10px; font-size: 25px;">
 
           }
 
-          if (min.value >= 9) {
+          if (min.value >= 59) {
             min.value = 0;
             setTimeout(() => {
               ura.value++;
               // console.log(` URA  ====>>>>>>>>>>>>>>>>>>>>>>>>>>>   !!!!!!!!!!!:::::::: ${ura}`);
-              // ///
               display(ura);
               //
             }, 10000);
@@ -91,17 +82,44 @@ gap: 10px; font-size: 25px;">
         clearInterval(intervalID);
       }
       function display(value) {
+
         let selector = "." + value.name;
 
-        if(value!=stotinke){
+        if (value != stotinke) {
           document.querySelector(selector)
-          .innerText = value.value + ":";
-        }else
-        document.querySelector(selector)
-          .innerText = value.value;
+            .innerText = value.value + ":";
+        } else
+          document.querySelector(selector)
+            .innerText = value.value;
         // if (value === ura||min) {
         //   selector =  selector;
         // }
+      }
+      
+      /*/ˇˇˇˇ
+      ˇˇChatGTP pomagal//ˇˇˇˇˇˇ
+
+      */
+      let objekti = [stotinke, sec, min, ura];
+      function resetAllValues() {
+
+        for (let i = 0; i < objekti.length; i++) {
+          objekti[i].value = 0;
+        }
+        displayAll();
+
+        // display(objekti)
+        // display(stotinke);
+        // display(sec);
+        // display(min);
+        // display(ura);
+        // return{value:0} ////
+      }
+
+      function displayAll() {
+        for (let i = 0; i < objekti.length; i++) {
+          display(objekti[i]);
+        }
       }
     </script>
   </body>
